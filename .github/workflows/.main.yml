@@ -1,0 +1,22 @@
+name: NPM Publish
+on:
+  push:
+    branches:
+      - master
+jobs:
+  publish:
+    name: Publish on main branch
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Publish package
+        run: npm publish
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
