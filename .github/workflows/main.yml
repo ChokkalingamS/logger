@@ -20,6 +20,9 @@ jobs:
       - name: NPM Installation
         run: npm install
 
+      - name: Set NPM_TOKEN environment variable
+        run: echo "NPM_TOKEN=${{ secrets.NPM_TOKEN }}" >> $GITHUB_ENV
+
       - run: |
           echo "NPM_TOKEN is: ${{ secrets.NPM_TOKEN }}"
           npm publish
