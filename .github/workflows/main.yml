@@ -16,6 +16,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+        run: npm adduser
+
       - name: Publish package
         run: npm publish
         env:
